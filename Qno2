@@ -1,0 +1,40 @@
+package n03;
+
+/**
+ *
+ * @author rajju
+ */
+class N03 {
+
+    static void count(String str) {
+        // Create an char array of given String
+        int[] count = new int[255];
+
+        int length = str.length();
+
+        for (int i = 0; i < length; i++) {
+            count[str.charAt(i)]++;
+        }
+
+        char[] ch = new char[str.length()];
+        for (int i = 0; i < length; i++) {
+            ch[i] = str.charAt(i);
+            int find = 0;
+            for (int j = 0; j <= i; j++) {
+                if (str.charAt(i) == ch[j]) {
+                    find++;
+                }
+            }
+            if (find == 1) {
+                System.out.println("Number of Occurrence of " + str.charAt(i) + " letter is:" + count[str.charAt(i)]);
+            }
+        }
+        /**
+         * @param args the command line arguments
+         */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        String str = "hello how are you";
+        count(str);
+
+    }
